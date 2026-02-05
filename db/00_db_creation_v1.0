@@ -1,0 +1,15 @@
+/* Create the application database */
+CREATE DATABASE ChangeManagementDB
+ON PRIMARY (
+    NAME = N'ChangeManagementDB_Data',
+    FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL17.SQLEXPRESS\MSSQL\DATA\ChangeManagementDB.mdf',
+    SIZE = 50MB,
+    FILEGROWTH = 10MB
+)
+LOG ON (
+    NAME = N'ChangeManagementDB_Log',
+    FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL17.SQLEXPRESS\MSSQL\DATA\ChangeManagementDB.ldf',
+    SIZE = 20MB,
+    FILEGROWTH = 5MB
+);
+GO
