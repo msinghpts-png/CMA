@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Change Management Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="topbar">
+      <div>
+        <h1>Change Management</h1>
+        <p>Monitor and manage all change requests</p>
+      </div>
+      <a class="button" href="new-request.html">+ New Change Request</a>
+    </div>
+
+    <div class="navlinks">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="requests.html">Requests</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="templates.html">Templates</a>
+    </div>
+
+    <div class="grid cols-4" style="margin-top: 20px;">
+      <div class="card kpi">
+        <div>
+          <div class="muted">Total Changes</div>
+          <div class="kpi-value">23</div>
+          <div class="muted">+3 this month</div>
+        </div>
+        <span class="badge primary">Info</span>
+      </div>
+      <div class="card kpi">
+        <div>
+          <div class="muted">Pending Approval</div>
+          <div class="kpi-value">4</div>
+          <div class="muted">Manager + CAB</div>
+        </div>
+        <span class="badge warning">Pending</span>
+      </div>
+      <div class="card kpi">
+        <div>
+          <div class="muted">In Implementation</div>
+          <div class="kpi-value">2</div>
+          <div class="muted">Active windows</div>
+        </div>
+        <span class="badge info">Live</span>
+      </div>
+      <div class="card kpi">
+        <div>
+          <div class="muted">Emergency Changes</div>
+          <div class="kpi-value">1</div>
+          <div class="muted">Last 30 days</div>
+        </div>
+        <span class="badge danger">Emergency</span>
+      </div>
+    </div>
+
+    <div class="grid cols-2" style="margin-top: 20px;">
+      <div class="card">
+        <div class="section-title">
+          <h2>Pending Approval</h2>
+          <a class="muted" href="requests.html">View All →</a>
+        </div>
+        <div class="list">
+          <div class="list-item">
+            <div>
+              <div class="muted">CHG-000231 · P2</div>
+              <h3>Add Firewall Rule for New Payment Gateway</h3>
+              <div class="muted">Network · Manager Approval Pending</div>
+            </div>
+            <span class="badge warning">Manager Approval</span>
+          </div>
+          <div class="list-item">
+            <div>
+              <div class="muted">CHG-000228 · P3</div>
+              <h3>Rotate Service Account Credentials</h3>
+              <div class="muted">Security · CAB Approval Pending</div>
+            </div>
+            <span class="badge warning">CAB Review</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <h2>Upcoming Changes</h2>
+          <a class="muted" href="calendar.html">Calendar →</a>
+        </div>
+        <div class="list">
+          <div class="list-item">
+            <div>
+              <div class="muted">Jan 28, 2026 · 9:00 PM</div>
+              <h3>Deploy Q1 Security Patches</h3>
+              <div class="muted">Production · Downtime required</div>
+            </div>
+            <span class="badge info">Scheduled</span>
+          </div>
+          <div class="list-item">
+            <div>
+              <div class="muted">Feb 02, 2026 · 1:00 AM</div>
+              <h3>Cloud Cost Optimization Release</h3>
+              <div class="muted">Non-Prod · No downtime</div>
+            </div>
+            <span class="badge primary">Ready</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+      <div class="section-title">
+        <h2>Recent Changes</h2>
+        <a class="muted" href="requests.html">View All →</a>
+      </div>
+      <div class="list">
+        <div class="list-item">
+          <div>
+            <div class="muted">CHG-000221 · Server · Jan 27, 2026</div>
+            <h3>Deploy Q1 Security Patches to Production Web Servers</h3>
+            <div class="muted">Owner: admin@example.com</div>
+          </div>
+          <span class="badge success">Approved</span>
+        </div>
+        <div class="list-item">
+          <div>
+            <div class="muted">CHG-000219 · Database · Jan 27, 2026</div>
+            <h3>Emergency Database Performance Fix</h3>
+            <div class="muted">Owner: admin@example.com</div>
+          </div>
+          <span class="badge success">Closed - Successful</span>
+        </div>
+        <div class="list-item">
+          <div>
+            <div class="muted">CHG-000218 · Network · Jan 27, 2026</div>
+            <h3>Add Firewall Rule for New Payment Gateway</h3>
+            <div class="muted">Owner: admin@example.com</div>
+          </div>
+          <span class="badge warning">Manager Approval Pending</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

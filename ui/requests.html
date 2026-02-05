@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Change Requests</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="topbar">
+      <div>
+        <h1>Change Requests</h1>
+        <p>3 of 23 changes</p>
+      </div>
+      <a class="button" href="new-request.html">+ New Change</a>
+    </div>
+
+    <div class="navlinks">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="requests.html">Requests</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="templates.html">Templates</a>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+      <div class="form-grid">
+        <div>
+          <label>Search</label>
+          <input placeholder="Search by title, description, or change number" />
+        </div>
+        <div>
+          <label>My Changes</label>
+          <select>
+            <option>All changes</option>
+            <option>My requests</option>
+            <option>My approvals</option>
+          </select>
+        </div>
+        <div>
+          <label>Filters</label>
+          <select>
+            <option>All statuses</option>
+            <option>Pending</option>
+            <option>Approved</option>
+            <option>In progress</option>
+            <option>Closed</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px;" class="tabs">
+        <button class="active">All</button>
+        <button>Draft</button>
+        <button>Pending</button>
+        <button>Approved</button>
+        <button>In Progress</button>
+        <button>Closed</button>
+      </div>
+
+      <div class="list" style="margin-top: 16px;">
+        <div class="list-item">
+          <div>
+            <div class="muted">CHG-000221 · P2 · Normal</div>
+            <h3>Deploy Q1 Security Patches to Production Web Servers</h3>
+            <div class="muted">Deploy critical security patches to DMZ web servers.</div>
+            <div class="muted">Server · Jan 21, 2025 · admin@example.com</div>
+          </div>
+          <div>
+            <span class="badge success">Approved</span>
+            <div class="muted" style="margin-top: 8px;">Risk: Medium · Impact: Medium</div>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div>
+            <div class="muted">CHG-000220 · P1 · Emergency</div>
+            <h3>Emergency Database Performance Fix</h3>
+            <div class="muted">Apply emergency index optimization for order database.</div>
+            <div class="muted">Database · Jan 16, 2025 · admin@example.com</div>
+          </div>
+          <div>
+            <span class="badge success">Closed - Successful</span>
+            <div class="muted" style="margin-top: 8px;">Risk: High · Impact: High</div>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div>
+            <div class="muted">CHG-000218 · P3 · Normal</div>
+            <h3>Add Firewall Rule for New Payment Gateway</h3>
+            <div class="muted">Configure firewall rules for HTTPS traffic to payment gateway.</div>
+            <div class="muted">Network · Jan 25, 2025 · admin@example.com</div>
+          </div>
+          <div>
+            <span class="badge warning">Manager Approval Pending</span>
+            <div class="muted" style="margin-top: 8px;">Risk: Low · Impact: Low</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

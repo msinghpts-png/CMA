@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Change Request Detail</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="topbar">
+      <div>
+        <a class="muted" href="requests.html">← Back to List</a>
+        <h1>Deploy Q1 Security Patches to Production Web Servers</h1>
+        <p>CHG-000221 · Approved</p>
+      </div>
+      <button class="button">Start Implementation</button>
+    </div>
+
+    <div class="split">
+      <div>
+        <div class="card" style="margin-bottom: 16px;">
+          <div class="section-title">
+            <h2>Overview</h2>
+            <div>
+              <span class="badge primary">Normal</span>
+              <span class="badge warning">Risk: Medium</span>
+              <span class="badge info">Impact: Medium</span>
+            </div>
+          </div>
+          <div class="list">
+            <div>
+              <h3>Description</h3>
+              <p class="muted">Deploy critical Microsoft security patches to all production web servers in the DMZ. Includes 12 Windows Server 2022 instances running IIS.</p>
+            </div>
+            <div>
+              <h3>Business Justification</h3>
+              <p class="muted">Addresses critical vulnerabilities identified in recent security scan. CVE-2024-21351 has a CVSS score of 9.8.</p>
+            </div>
+            <div>
+              <h3>Implementation Steps</h3>
+              <ol class="muted" style="padding-left: 20px;">
+                <li>Take VM snapshots of all target servers</li>
+                <li>Disable servers in load balancer (rolling)</li>
+                <li>Install patches via WSUS</li>
+                <li>Reboot servers</li>
+                <li>Verify services startup</li>
+                <li>Re-enable in load balancer</li>
+              </ol>
+            </div>
+            <div>
+              <h3>Backout Plan</h3>
+              <ol class="muted" style="padding-left: 20px;">
+                <li>Revert to VM snapshot taken before patching</li>
+                <li>Uninstall patches if snapshot unavailable</li>
+                <li>Restore from backup as last resort</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">
+            <h2>Approvals</h2>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Stage</th>
+                <th>Approver</th>
+                <th>Decision</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Manager</td>
+                <td>Jordan Lee</td>
+                <td><span class="badge success">Approved</span></td>
+                <td>Jan 15, 2026</td>
+              </tr>
+              <tr>
+                <td>CAB</td>
+                <td>Priya Singh</td>
+                <td><span class="badge success">Approved</span></td>
+                <td>Jan 16, 2026</td>
+              </tr>
+              <tr>
+                <td>Security</td>
+                <td>Alex Chen</td>
+                <td><span class="badge success">Approved</span></td>
+                <td>Jan 16, 2026</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom: 16px;">
+          <h2 style="margin-bottom: 12px;">Details</h2>
+          <div class="list">
+            <div>
+              <div class="muted">Category</div>
+              <div>Server</div>
+            </div>
+            <div>
+              <div class="muted">Environment</div>
+              <div>Production</div>
+            </div>
+            <div>
+              <div class="muted">Service</div>
+              <div>Web Services</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 16px;">
+          <h2 style="margin-bottom: 12px;">Schedule</h2>
+          <div class="list">
+            <div>
+              <div class="muted">Planned Start</div>
+              <div>Jan 21, 2025 9:00 AM</div>
+            </div>
+            <div>
+              <div class="muted">Planned End</div>
+              <div>Jan 21, 2025 1:00 PM</div>
+            </div>
+            <span class="badge warning">Downtime Required</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 style="margin-bottom: 12px;">People</h2>
+          <div class="list">
+            <div>
+              <div class="muted">Owner</div>
+              <div>admin@example.com</div>
+            </div>
+            <div>
+              <div class="muted">Requested By</div>
+              <div>admin@example.com</div>
+            </div>
+            <div>
+              <div class="muted">Implementation Group</div>
+              <div>Infrastructure Team</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

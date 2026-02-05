@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Change Templates</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="topbar">
+      <div>
+        <h1>Change Templates</h1>
+        <p>Pre-defined templates for common change types</p>
+      </div>
+      <a class="button" href="new-request.html">+ New Template</a>
+    </div>
+
+    <div class="navlinks">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="requests.html">Requests</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="templates.html">Templates</a>
+    </div>
+
+    <div class="grid cols-2" style="margin-top: 20px;">
+      <div class="card">
+        <div class="section-title">
+          <h2>Windows Security Patch</h2>
+          <div class="muted">Standard · Server</div>
+        </div>
+        <p class="muted">Deploy monthly Windows security patches to target server group.</p>
+        <div style="margin-top: 12px;">
+          <span class="badge success">Risk: Low</span>
+          <span class="badge info">Steps defined</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <h2>Network Firewall Rule Change</h2>
+          <div class="muted">Normal · Network</div>
+        </div>
+        <p class="muted">Modify firewall rules to allow or block traffic for a service.</p>
+        <div style="margin-top: 12px;">
+          <span class="badge warning">CAB Required</span>
+          <span class="badge info">Steps defined</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <h2>Database Maintenance</h2>
+          <div class="muted">Standard · Database</div>
+        </div>
+        <p class="muted">Perform scheduled database maintenance and statistics updates.</p>
+        <div style="margin-top: 12px;">
+          <span class="badge success">Risk: Low</span>
+          <span class="badge info">Steps defined</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
