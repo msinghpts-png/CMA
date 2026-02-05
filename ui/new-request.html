@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Change Request</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="topbar">
+      <div>
+        <a class="muted" href="dashboard.html">← Back to Dashboard</a>
+        <h1>New Change Request</h1>
+        <p>Create a new change request for approval</p>
+      </div>
+      <div>
+        <button class="button secondary">Save Draft</button>
+        <button class="button" style="margin-left: 8px;">Submit for Approval</button>
+      </div>
+    </div>
+
+    <div class="hero-banner">
+      <div>
+        <strong>Start from a template</strong>
+        <div class="muted">Pre-fill with standard change patterns</div>
+      </div>
+      <select>
+        <option>Select template...</option>
+        <option>Windows Security Patch</option>
+        <option>Database Maintenance</option>
+      </select>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+      <div class="tabs" style="margin-bottom: 16px;">
+        <button class="active">Basic Info</button>
+        <button>Schedule</button>
+        <button>Plans</button>
+        <button>Risk & Impact</button>
+      </div>
+
+      <div class="form-grid">
+        <div style="grid-column: 1 / -1;">
+          <label>Title *</label>
+          <input placeholder="Brief title for the change" />
+        </div>
+        <div>
+          <label>Change Type *</label>
+          <select>
+            <option>Normal</option>
+            <option>Standard</option>
+            <option>Emergency</option>
+          </select>
+        </div>
+        <div>
+          <label>Category *</label>
+          <select>
+            <option>Application</option>
+            <option>Network</option>
+            <option>Server</option>
+            <option>Security</option>
+          </select>
+        </div>
+        <div>
+          <label>Service / System *</label>
+          <input placeholder="Affected service or system" />
+        </div>
+        <div>
+          <label>Environment *</label>
+          <select>
+            <option>Non-Production</option>
+            <option>Production</option>
+            <option>DR</option>
+          </select>
+        </div>
+        <div style="grid-column: 1 / -1;">
+          <label>Description *</label>
+          <textarea placeholder="Detailed description of what will be changed"></textarea>
+        </div>
+        <div style="grid-column: 1 / -1;">
+          <label>Business Justification *</label>
+          <textarea placeholder="Why is this change needed? What business value does it provide?"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
