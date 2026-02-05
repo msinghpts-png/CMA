@@ -1,0 +1,12 @@
+{
+  "environment": "local",
+  "apiBaseUrl": "http://localhost:5000/api",
+  "database": {
+    "provider": "sqlserver",
+    "server": "localhost\\SQLEXPRESS",
+    "name": "ChangeMgmt",
+    "authentication": "windows",
+    "user": "",
+    "password": ""
+  }
+}
