@@ -1,0 +1,160 @@
+/* ## Change Management Database – v1.1 Audit & Lifecycle Procedures 
+
+**Target:** SQL Server Express
+**Prerequisite:** Core schema (v1.0) + Seed data applied*/
+
+
+USE ChangeManagementDB;
+GO
+
+
+
+/*
+## 1. Audit Writer Procedure
+
+This is the **single entry point** for all audit logging. All lifecycle procedures call this.
+*/
+
+CREATE OR ALTER PROCEDURE audit.usp_WriteEvent
+  @EventTypeCode nvarchar(80),
+  @ActorUserId uniqueidentifier = NULL,
+  @ActorUpn nvarchar(256) = NULL,
+  @ActorDisplayName nvarchar(200) = NULL,
+  @EntitySchema nvarchar(50) = NULL,
+  @EntityName nvarchar(100) = NULL,
+  @EntityId uniqueidentifier = NULL,
+  @ChangeNumber nvarchar(20) = NULL,
+  @Reason nvarchar(500) = NULL,
+  @Details nvarchar(max) = NULL
+AS
+BEGIN
+  SET NOCOUNT ON;
+
+  DECLARE @EventTypeId int;
+
+  SELECT @EventTypeId = EventTypeId
+  FROM audit.EventType
+  WHERE Code = @EventTypeCode;
+
+  IF @EventTypeId IS NULL
+    THROW 50001, 'Invalid audit event type', 1;
+
+  INSERT INTO audit.Event (
+    EventTypeId, ActorUserId, ActorUpn,
+    EntitySchema, EntityName, EntityId,
+    ChangeNumber, Reason, Details
+  )
+  VALUES (
+    @EventTypeId, @ActorUserId, @ActorUpn,
+    @EntitySchema, @EntityName, @EntityId,
+    @ChangeNumber, @Reason, @Details
+  );
+END;
+GO
+
+
+/*
+## 2. Create Change Request (Authoritative Entry Point)
+
+UI should call this instead of inserting directly.*/
+
+
+CREATE OR ALTER PROCEDURE cm.usp_CreateChangeRequest
+  @Title nvarchar(300),
+  @Description nvarchar(max),
+  @Justification nvarchar(max),
+  @ChangeTypeCode nvarchar(50),
+  @ChangeCategoryCode nvarchar(50),
+  @EnvironmentCode nvarchar(50),
+  @ImpactCode nvarchar(50),
+  @RiskCode nvarchar(50),
+  @PriorityCode nvarchar(50),
+  @RequestedByUserId uniqueidentifier,
+  @OwnerUserId uniqueidentifier,
+  @BackoutPlan nvarchar(max),
+  @ValidationPlan nvarchar(max),
+  @ImplementationSteps nvarchar(max)
+AS
+BEGIN
+  SET NOCOUNT ON;
+
+  DECLARE @ChangeNumber nvarchar(20);
+
+  SELECT @ChangeNumber = 'CHG-' + RIGHT('000000' + CAST(ISNULL(MAX(CAST(SUBSTRING(ChangeNumber,5,6) AS int)),0) + 1 AS varchar(6)),6)
+  FROM cm.ChangeRequest;
+
+  INSERT INTO cm.ChangeRequest (
+    ChangeNumber, Title, Description, Justification,
+    ChangeTypeId, ChangeCategoryId, EnvironmentId,
+    ImpactLevelId, RiskLevelId, PriorityId, ChangeStatusId,
+    RequestedByUserId, OwnerUserId,
+    BackoutPlan, ValidationPlan, ImplementationSteps
+  )
+  SELECT
+    @ChangeNumber, @Title, @Description, @Justification,
+    ct.ChangeTypeId, cc.ChangeCategoryId, env.EnvironmentId,
+    il.ImpactLevelId, rl.RiskLevelId, p.PriorityId,
+    (SELECT ChangeStatusId FROM ref.ChangeStatus WHERE Code='DRAFT'),
+    @RequestedByUserId, @OwnerUserId,
+    @BackoutPlan, @ValidationPlan, @ImplementationSteps
+  FROM ref.ChangeType ct
+  JOIN ref.ChangeCategory cc ON cc.Code=@ChangeCategoryCode
+  JOIN ref.Environment env ON env.Code=@EnvironmentCode
+  JOIN ref.ImpactLevel il ON il.Code=@ImpactCode
+  JOIN ref.RiskLevel rl ON rl.Code=@RiskCode
+  JOIN ref.Priority p ON p.Code=@PriorityCode
+  WHERE ct.Code=@ChangeTypeCode;
+
+    /* Retrieve newly created ChangeRequestId safely */
+  DECLARE @CR uniqueidentifier;
+
+  SELECT @CR = ChangeRequestId
+  FROM cm.ChangeRequest
+  WHERE ChangeNumber = @ChangeNumber;
+
+  EXEC audit.usp_WriteEvent
+    @EventTypeCode='CHANGE_CREATED',
+    @ActorUserId=@RequestedByUserId,
+    @EntitySchema='cm',
+    @EntityName='ChangeRequest',
+    @EntityId=@CR,
+    @ChangeNumber=@ChangeNumber,
+    @Reason='Change request created';
+END;
+GO
+
+
+
+/*
+## 3. Submit Change*/
+
+
+CREATE OR ALTER PROCEDURE cm.usp_SubmitChangeRequest
+  @ChangeRequestId uniqueidentifier,
+  @ActorUserId uniqueidentifier
+AS
+BEGIN
+  SET NOCOUNT ON;
+
+  UPDATE cm.ChangeRequest
+  SET ChangeStatusId = (SELECT ChangeStatusId FROM ref.ChangeStatus WHERE Code='SUBMITTED')
+  WHERE ChangeRequestId=@ChangeRequestId;
+
+  EXEC audit.usp_WriteEvent
+    @EventTypeCode='CHANGE_SUBMITTED',
+    @ActorUserId=@ActorUserId,
+    @EntitySchema='cm',
+    @EntityName='ChangeRequest',
+    @EntityId=@ChangeRequestId,
+    @Reason='Change submitted';
+END;
+GO
+
+
+
+
+/*## Version Marker*/
+
+
+PRINT 'Change Management DB v1.1 – Audit & Lifecycle Procedures installed';
+
