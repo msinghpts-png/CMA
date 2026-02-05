@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Change Requests</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div>
+        <div class="breadcrumb"><a href="index.html">Dashboard</a> / <span>Change Requests</span></div>
+        <h1>Change Requests</h1>
+        <p class="subtitle">3 of 3 changes</p>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="admin.html">Admin</a>
+        <a href="login.html">Login</a>
+        <button class="btn btn-primary">+ New Change</button>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search by title, description, or change number..." />
+      <button class="btn btn-outline">My Changes</button>
+      <button class="btn btn-outline">Filters</button>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active">All</div>
+      <div class="tab">Draft</div>
+      <div class="tab">Pending</div>
+      <div class="tab">Approved</div>
+      <div class="tab">In Progress</div>
+      <div class="tab">Closed</div>
+    </div>
+
+    <div class="list">
+      <div class="card change-card">
+        <div class="change-meta">
+          <span class="badge badge-soft">CHG-000001</span>
+          <span class="badge badge-warning">P2</span>
+          <span class="badge badge-soft">Normal</span>
+          <span class="badge badge-success">Approved</span>
+        </div>
+        <h3>Deploy Q1 Security Patches to Production Web Servers</h3>
+        <p class="subtitle">
+          Deploy critical Microsoft security patches KB5034441 and KB5034439 to all production web servers in the DMZ. This includes 12 Windows Server 2022 instances running IIS.
+        </p>
+        <div class="change-meta">
+          <span>Server</span>
+          <span>Jan 21, 2025</span>
+          <span>admin@example.com</span>
+          <span class="badge badge-warning">Risk: Medium</span>
+          <span class="badge badge-warning">Impact: Medium</span>
+        </div>
+      </div>
+
+      <div class="card change-card">
+        <div class="change-meta">
+          <span class="badge badge-soft">CHG-000002</span>
+          <span class="badge badge-danger">P1</span>
+          <span class="badge badge-danger">Emergency</span>
+          <span class="badge badge-success">Closed - Successful</span>
+        </div>
+        <h3>Emergency Database Performance Fix</h3>
+        <p class="subtitle">
+          Apply emergency index optimization to address critical performance degradation in the customer orders database causing 30-second query response times.
+        </p>
+        <div class="change-meta">
+          <span>Database</span>
+          <span>Jan 16, 2025</span>
+          <span>admin@example.com</span>
+          <span class="badge badge-danger">Risk: High</span>
+          <span class="badge badge-danger">Impact: High</span>
+        </div>
+      </div>
+
+      <div class="card change-card">
+        <div class="change-meta">
+          <span class="badge badge-soft">CHG-000003</span>
+          <span class="badge badge-warning">P3</span>
+          <span class="badge badge-soft">Normal</span>
+          <span class="badge badge-warning">Manager Approval Pending</span>
+        </div>
+        <h3>Add Firewall Rule for New Payment Gateway</h3>
+        <p class="subtitle">
+          Configure firewall rules to allow outbound HTTPS traffic from payment processing servers to new payment gateway provider (pay.newgateway.com).
+        </p>
+        <div class="change-meta">
+          <span>Network</span>
+          <span>Jan 25, 2025</span>
+          <span>admin@example.com</span>
+          <span class="badge badge-success">Risk: Low</span>
+          <span class="badge badge-success">Impact: Low</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

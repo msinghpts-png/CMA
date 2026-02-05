@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Change Details</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div>
+        <div class="breadcrumb"><a href="change-requests.html">Back to List</a></div>
+        <h1>Deploy Q1 Security Patches to Production Web Servers</h1>
+        <p class="subtitle">CHG-000001 · Approved</p>
+      </div>
+      <div class="nav-links">
+        <a href="admin.html">Admin</a>
+        <a href="login.html">Login</a>
+        <button class="btn btn-primary">Start Implementation</button>
+      </div>
+    </div>
+
+    <div class="change-meta" style="margin-bottom: 16px;">
+      <span class="badge badge-warning">P2</span>
+      <span class="badge badge-soft">Normal</span>
+      <span class="badge badge-warning">Risk: Medium</span>
+      <span class="badge badge-warning">Impact: Medium</span>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active">Overview</div>
+      <div class="tab">Approvals</div>
+      <div class="tab">Tasks (0)</div>
+      <div class="tab">Attachments (0)</div>
+    </div>
+
+    <div class="split">
+      <div class="list">
+        <div class="card">
+          <h3>Description</h3>
+          <p class="subtitle">
+            Deploy critical Microsoft security patches KB5034441 and KB5034439 to all production web servers in the DMZ. This includes 12 Windows Server 2022 instances running IIS.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Business Justification</h3>
+          <p class="subtitle">
+            Address critical vulnerabilities identified in recent security scan. CVE-2024-21351 has a CVSS score of 9.8 and is being actively exploited in the wild.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Implementation Steps</h3>
+          <ol class="subtitle" style="padding-left: 18px;">
+            <li>Take VM snapshots of all target servers</li>
+            <li>Disable servers in load balancer (rolling)</li>
+            <li>Install patches via WSUS</li>
+            <li>Reboot servers</li>
+            <li>Verify services startup</li>
+            <li>Re-enable in load balancer</li>
+            <li>Proceed to next batch</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Backout Plan</h3>
+          <ol class="subtitle" style="padding-left: 18px;">
+            <li>Revert to VM snapshot taken before patching</li>
+            <li>Uninstall patches if snapshot unavailable</li>
+            <li>Restore from backup as last resort</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <div class="card">
+          <h3>Details</h3>
+          <div class="detail-item"><span>Category</span>Server</div>
+          <div class="detail-item"><span>Environment</span>Production</div>
+          <div class="detail-item"><span>Service</span>Web Services</div>
+        </div>
+        <div class="card">
+          <h3>Schedule</h3>
+          <div class="detail-item"><span>Planned Start</span>Jan 21, 2025 9:00 AM</div>
+          <div class="detail-item"><span>Planned End</span>Jan 21, 2025 1:00 PM</div>
+          <div class="badge badge-warning" style="margin-top: 8px;">Downtime Required</div>
+        </div>
+        <div class="card">
+          <h3>People</h3>
+          <div class="detail-item"><span>Owner</span>admin@example.com</div>
+          <div class="detail-item"><span>Requested By</span>admin@example.com</div>
+          <div class="detail-item"><span>Implementation Group</span>Infrastructure Team</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

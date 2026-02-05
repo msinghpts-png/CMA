@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Change Management Dashboard</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div>
+        <div class="breadcrumb">Dashboard</div>
+        <h1>Change Management</h1>
+        <p class="subtitle">Monitor and manage all change requests</p>
+      </div>
+      <div class="nav-links">
+        <a href="change-requests.html">Change Requests</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="templates.html">Templates</a>
+        <a href="admin.html">Admin</a>
+        <a href="login.html">Login</a>
+        <button class="btn btn-primary">+ New Change Request</button>
+      </div>
+    </div>
+
+    <div class="metric-grid">
+      <div class="card metric">
+        <div>
+          <h3>Total Changes</h3>
+          <span>3</span>
+          <p class="subtitle">3 this month</p>
+        </div>
+        <div class="metric-icon">📄</div>
+      </div>
+      <div class="card metric">
+        <div>
+          <h3>Pending Approval</h3>
+          <span>1</span>
+        </div>
+        <div class="metric-icon">⏱️</div>
+      </div>
+      <div class="card metric">
+        <div>
+          <h3>In Implementation</h3>
+          <span>0</span>
+        </div>
+        <div class="metric-icon">▶️</div>
+      </div>
+      <div class="card metric">
+        <div>
+          <h3>Emergency Changes</h3>
+          <span>1</span>
+        </div>
+        <div class="metric-icon">⚡</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="section-title">Pending Approval</div>
+            <h3>Manager queue</h3>
+          </div>
+          <a href="change-requests.html" class="subtitle">View All →</a>
+        </div>
+        <div class="list">
+          <div class="list-item">
+            <div>
+              <div class="change-meta">
+                <span class="badge badge-soft">CHG-000003</span>
+                <span class="badge badge-warning">P3</span>
+              </div>
+              <h4>Add Firewall Rule for New Payment Gateway</h4>
+              <p class="subtitle">Network</p>
+            </div>
+            <span class="badge badge-warning">Manager Approval Pending</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="section-title">Upcoming Changes</div>
+            <h3>Next 30 days</h3>
+          </div>
+          <a href="calendar.html" class="subtitle">Calendar →</a>
+        </div>
+        <div class="list">
+          <div class="list-item" style="justify-content: center; text-align: center;">
+            <div>
+              <div class="metric-icon" style="margin: 0 auto 12px;">📅</div>
+              <p class="subtitle">No upcoming scheduled changes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="section-title">Recent Changes</div>
+          <h3>Latest activity</h3>
+        </div>
+        <a href="change-requests.html" class="subtitle">View All →</a>
+      </div>
+      <div class="list">
+        <div class="list-item">
+          <div>
+            <div class="change-meta">
+              <span class="badge badge-soft">CHG-000001</span>
+              <span class="badge badge-warning">P2</span>
+            </div>
+            <h4>Deploy Q1 Security Patches to Production Web Servers</h4>
+            <p class="subtitle">Server · admin@example.com · Jan 27, 2026</p>
+          </div>
+          <span class="badge badge-success">Approved</span>
+        </div>
+        <div class="list-item">
+          <div>
+            <div class="change-meta">
+              <span class="badge badge-soft">CHG-000002</span>
+              <span class="badge badge-danger">P1 Emergency</span>
+            </div>
+            <h4>Emergency Database Performance Fix</h4>
+            <p class="subtitle">Database · admin@example.com · Jan 27, 2026</p>
+          </div>
+          <span class="badge badge-success">Closed - Successful</span>
+        </div>
+        <div class="list-item">
+          <div>
+            <div class="change-meta">
+              <span class="badge badge-soft">CHG-000003</span>
+              <span class="badge badge-warning">P3</span>
+            </div>
+            <h4>Add Firewall Rule for New Payment Gateway</h4>
+            <p class="subtitle">Network · admin@example.com · Jan 27, 2026</p>
+          </div>
+          <span class="badge badge-warning">Manager Approval Pending</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Change Templates</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div>
+        <div class="breadcrumb"><a href="index.html">Dashboard</a> / <span>Templates</span></div>
+        <h1>Change Templates</h1>
+        <p class="subtitle">Pre-defined templates for common change types</p>
+      </div>
+      <div class="nav-links">
+        <a href="admin.html">Admin</a>
+        <a href="login.html">Login</a>
+        <button class="btn btn-primary">+ New Template</button>
+      </div>
+    </div>
+
+    <div class="template-grid">
+      <div class="card template-card">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="icon-pill">📄</div>
+          <div>
+            <h3>Windows Security Patch</h3>
+            <p class="subtitle">Standard · Server · Risk: Low</p>
+          </div>
+        </div>
+        <p class="subtitle">
+          Deploy monthly Windows security patches to [SERVER_GROUP] servers as part of regular patch cycle.
+        </p>
+        <div class="change-meta">
+          <span class="badge badge-success">Steps defined</span>
+        </div>
+      </div>
+
+      <div class="card template-card">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="icon-pill">🛡️</div>
+          <div>
+            <h3>Network Firewall Rule Change</h3>
+            <p class="subtitle">Normal · Network · Risk: Medium</p>
+          </div>
+        </div>
+        <p class="subtitle">
+          Modify firewall rules on [FIREWALL_NAME] to allow/block traffic for [SERVICE/APPLICATION].
+        </p>
+        <div class="change-meta">
+          <span class="badge badge-warning">CAB Required</span>
+          <span class="badge badge-success">Steps defined</span>
+        </div>
+      </div>
+
+      <div class="card template-card">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="icon-pill">🗄️</div>
+          <div>
+            <h3>Database Maintenance</h3>
+            <p class="subtitle">Standard · Database · Risk: Low</p>
+          </div>
+        </div>
+        <p class="subtitle">
+          Perform scheduled database maintenance including index rebuild and statistics update on [DATABASE_NAME].
+        </p>
+        <div class="change-meta">
+          <span class="badge badge-success">Steps defined</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
